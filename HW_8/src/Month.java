@@ -1,11 +1,14 @@
-public class Month {
-    public String monthName;       // Имя месяца
-    public int noOfTotalDays;      // Общее количество дней в месяце
-    public int noOfWorkingDays;    // Количество рабочих дней в месяце
+//Задача №1
+//Создать класс Month с полями: имя месяца,
+// количеством дней и количеством рабочих дней.
+// Создать класс MonthUtils который бы хранил
+// подготовленные месяцы или их массивы для
+// использования (объекты класса Month).
 
-    public void makeMonth(String month, int totalDays, int workingDays) {
-        monthName = month;
-        noOfTotalDays = totalDays;
-        noOfWorkingDays = workingDays;
-    }
-}
+
+public class Month {
+    public String name;       // Имя месяца
+    public int days;      // Общее количество дней в месяце
+    public int workingDays;    // Количество рабочих дней в месяце
+
+ }
