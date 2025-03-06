@@ -1,21 +1,23 @@
 public class Manager {
-    public String nameManager;          // Имя сотрудника
-    public int ageManager;              // Возраст
-    public String genderManager;        // Пол
-    public double salaryPerDayManager;  // Зарплата в день
-    public int noOfSubordinates;        // Количество подчиненных
+    public String name;          // Имя сотрудника
+    public int age;              // Возраст
+    public String gender;        // Пол
+    public double salaryPerDay;  // Зарплата в день
+    public int noOfSubordinates;
 
-    // Метод для расчета зарплаты с учетом подчиненных
+    // Метод для вычисления зарплаты за переданные месяцы
     public double getSalary(Month[] monthArray) {
         double totalSalary = 0;
 
-        // Рассчитываем базовую зарплату за указанные месяцы
         for (Month month : monthArray) {
-            totalSalary += month.noOfWorkingDays * salaryPerDayManager; // Учитываем только рабочие дни
+            totalSalary += getMonthlySalary(month);
         }
 
-        // Добавляем бонус за подчиненных (1% за каждого)
-        double bonus = totalSalary * ((double)noOfSubordinates * 0.01);
-        return totalSalary + bonus; // Возвращаем общую зарплату с бонусом
+        return totalSalary;
+    }
+
+    public double getMonthlySalary(Month month) {
+        double bonusKoef = 1 + noOfSubordinates * 0.01;
+        return month.workingDays * salaryPerDay;  // зарплата за 1 месяц, Учитываем только рабочие дни
     }
 }
